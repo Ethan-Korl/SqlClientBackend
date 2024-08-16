@@ -1,12 +1,10 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
 
-namespace SqlClientBackend.Models
+namespace SqlClientBackend.Dtos
 {
-    public class User
+    public record UserDto
     {
         [Required]
-        public required string id { get; set; }
         public required string email { get; set; }
 
         [StringLength(50)]
@@ -15,6 +13,5 @@ namespace SqlClientBackend.Models
         [Required]
         public required string password { get; set; }
         public DateTime? date_created { get; set; }
-
     }
 }
