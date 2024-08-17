@@ -1,12 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace SqlClientBackend.Models
 {
     public class User
-    {
-        [Required]
-        public required string id { get; set; }
+    {   
+        public required int id { get; set; }
         public required string email { get; set; }
 
         [StringLength(50)]

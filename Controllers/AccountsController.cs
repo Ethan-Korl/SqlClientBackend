@@ -1,10 +1,13 @@
+using Microsoft.AspNetCore.Mvc;
 using SqlClientBackend.Models;
+using SqlClientBackend.Respositories;
 using SqlClientBackend.Utils;
+using SqlClientBackend.Dtos;
 
 namespace SqlClientBackend.Controllers
 {
-
-    public static class AccountsController
+    [ApiController]
+    public static class AccountsController 
     {
         public static IResult SubmitEmailForVerification()
         {
@@ -18,9 +21,11 @@ namespace SqlClientBackend.Controllers
             message.Add("message", "Email Verified");
             return Results.Ok(message);
         }
-        public static IResult Signup(User data)
+        public static IResult Signup(EamilVerificationDto data)
         {
             Console.WriteLine(GeneralUtils.GenerateCode(1000, 9999));
+            // data.email
+            // Results.Problem(statusCode)
             return Results.Ok(data);
         }
         public static IResult Login()
@@ -28,6 +33,7 @@ namespace SqlClientBackend.Controllers
             return Results.Ok();
         }
 
+        // Get
 
 
     }

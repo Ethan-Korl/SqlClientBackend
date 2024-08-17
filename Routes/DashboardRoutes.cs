@@ -4,12 +4,13 @@ namespace SqlClientBackend.Routes
 {
     public static class DashboardRoutes
     {
-        public static RouteGroupBuilder DashboardRouteBuilder(this RouteGroupBuilder DashboardGroup)
+        public static WebApplication DashboardRouteBuilder(this WebApplication app)
         {
-            DashboardGroup.MapGet("/data", DashboardContoller.GetData);
-            DashboardGroup.MapPost("/query", DashboardContoller.ExecuteQuery);
-            DashboardGroup.MapGet("/history", DashboardContoller.GetQueryHistory);
-            return DashboardGroup;
+            var groupBuilder = app.MapGroup("/dashboard");
+            groupBuilder.MapGet("/data", DashboardContoller.GetData);
+            groupBuilder.MapPost("/query", DashboardContoller.ExecuteQuery);
+            groupBuilder.MapGet("/history", DashboardContoller.GetQueryHistory);
+            return app;
         }
     }
 }

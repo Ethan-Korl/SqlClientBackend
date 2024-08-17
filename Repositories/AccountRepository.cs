@@ -1,4 +1,4 @@
-namespace SqlClientBackend.Resposito
+namespace SqlClientBackend.Respositories
 {
     public static class AccountRepository
     {

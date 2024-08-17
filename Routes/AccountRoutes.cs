@@ -4,12 +4,13 @@ namespace SqlClientBackend.Routes
 {
     public static class AccountRoutes
     {
-        public static RouteGroupBuilder AccountRouteBuilder(this RouteGroupBuilder accountGroup)
+        public static WebApplication AccountRouteBuilder(this WebApplication app)
         {
-            accountGroup.MapPost("/signup", AccountsController.Signup);
-            accountGroup.MapPost("/verify-email", AccountsController.VerifyEmail);
-            accountGroup.MapPost("/submit-email", AccountsController.SubmitEmailForVerification);
-            return accountGroup;
+            var groupBuilder = app.MapGroup("/accounts");
+            groupBuilder.MapPost("/signup", AccountsController.Signup).WithParameterValidation();
+            groupBuilder.MapPost("/verify-email", AccountsController.VerifyEmail);
+            groupBuilder.MapPost("/submit-email", AccountsController.SubmitEmailForVerification);
+            return app;
         }
     }
 }
