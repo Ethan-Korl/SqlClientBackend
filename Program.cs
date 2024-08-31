@@ -8,11 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // USE OUR BUILDER OJECT TO REGISTER SERVICES("DATABASES)
 var connString = GeneralConfigs.ConnectionString;
-var ss = builder.Environment;
+// var ss = builder.Environment;
+
+builder.Services.AddAuthentication().AddJwtBearer();
 
 // now register a service
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var vv = Environment.GetEnvironmentVariables();
 
 // Mongodb
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbStoreDatabase"));

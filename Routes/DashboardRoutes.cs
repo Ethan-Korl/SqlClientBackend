@@ -9,7 +9,7 @@ namespace SqlClientBackend.Routes
             var groupBuilder = app.MapGroup("/dashboard");
             groupBuilder.MapGet("/data", DashboardContoller.GetData);
             groupBuilder.MapPost("/query", DashboardContoller.ExecuteQuery);
-            groupBuilder.MapGet("/history", DashboardContoller.GetQueryHistory);
+            groupBuilder.MapGet("/history", DashboardContoller.GetQueryHistory).RequireAuthorization();
             return app;
         }
     }

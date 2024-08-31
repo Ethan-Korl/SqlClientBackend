@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SqlClientBackend.Dtos
 {
-    public record UserDto
+    public record UserRegistrationDto
     {
         [Required]
         public required string email { get; set; }

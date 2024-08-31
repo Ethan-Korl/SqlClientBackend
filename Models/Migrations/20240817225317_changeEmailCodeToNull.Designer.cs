@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SqlClientBackend.Models;
 
@@ -10,9 +11,11 @@ using SqlClientBackend.Models;
 namespace SqlClientBackend.Models.Migrations
 {
     [DbContext(typeof(SqlClientDbContext))]
-    partial class SqlClientDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240817225317_changeEmailCodeToNull")]
+    partial class changeEmailCodeToNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
